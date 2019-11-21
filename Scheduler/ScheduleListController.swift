@@ -27,7 +27,7 @@ class ScheduleListController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    events = Event.getTestData()
+    events = Event.getTestData().sorted { $0.date < $1.date }
     tableView.dataSource = self    
   }
   
