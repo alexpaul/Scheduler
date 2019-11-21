@@ -13,7 +13,7 @@ struct Event {
   var name: String
   
   static func getTestData() -> [Event] {
-    let eventNames = ["Code", "Unit Assessment", "iOS Soho", "112 mile birtday bike ride", "Ladies night out"]
+    let eventNames = ["Code", "Unit Assessment", "iOS Soho", "112 mile birthday bike ride", "Ladies night out"]
     var events = [Event]()
     for eventName in eventNames {
       let event = Event(date: Date(), name: eventName)
