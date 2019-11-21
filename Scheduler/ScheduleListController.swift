@@ -15,13 +15,6 @@ class ScheduleListController: UIViewController {
   // data - an array of events
   var events = [Event]()
   
-  var isEditingTableView = false {
-    didSet {
-      tableView.isEditing = isEditingTableView
-      navigationItem.leftBarButtonItem?.title = isEditingTableView ? "Done" : "Edit"
-    }
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     events = Event.getTestData()
@@ -45,10 +38,6 @@ class ScheduleListController: UIViewController {
     
     // use indexPath to insert into table view
     tableView.insertRows(at: [indexPath], with: .automatic)
-  }
-  
-  @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-    isEditingTableView.toggle()
   }
 }
 
@@ -77,13 +66,6 @@ extension ScheduleListController: UITableViewDataSource {
     default:
       print("......")
     }
-  }
-  
-  // MARK:- reordering rows
-  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-    let movedObject = events[sourceIndexPath.row]
-    events.remove(at: sourceIndexPath.row)
-    events.insert(movedObject, at: destinationIndexPath.row)
   }
 }
 
